@@ -3,7 +3,7 @@ export const watchesData = [
     id: 1,
     name: "Classic Analog Watch",
     description: "A stylish analog watch perfect for everyday wear.",
-    imageUrl: "/src/assets/images/watch1.png",
+    imageUrl: "/public/assets/watch1.png",
     affiliateLinks: {
       amazon: "https://www.amazon.com/your-amazon-affiliate-link-1",
       myntra: null,
@@ -16,7 +16,7 @@ export const watchesData = [
     id: 2,
     name: "Digital Sport Watch",
     description: "A durable digital watch designed for sports and fitness.",
-    imageUrl: "/src/assets/images/watch1.png",
+    imageUrl: "/public/assets/watch1.png",
     affiliateLinks: {
       amazon: null,
       myntra: "https://www.myntra.com/your-myntra-affiliate-link-2",
@@ -30,7 +30,7 @@ export const watchesData = [
     name: "Smart Watch Pro",
     description:
       "A feature-packed smartwatch with fitness tracking and notifications.",
-    imageUrl: "/src/assets/images/watch1.png",
+    imageUrl: "/public/assets/watch1.png",
     affiliateLinks: {
       amazon: null,
       myntra: null,
@@ -43,7 +43,7 @@ export const watchesData = [
     id: 4,
     name: "Casio Classic",
     description: "A classic and reliable watch from Casio.",
-    imageUrl: "/src/assets/images/watch1.png",
+    imageUrl: "/public/assets/watch1.png",
     affiliateLinks: {
       amazon: "https://www.amazon.com/casio-affiliate-link-1",
       myntra: null,
@@ -56,7 +56,7 @@ export const watchesData = [
     id: 5,
     name: "Citizen Eco-Drive",
     description: "An eco-friendly watch powered by light.",
-    imageUrl: "/src/assets/images/watch1.png",
+    imageUrl: "/public/assets/watch1.png",
     affiliateLinks: {
       amazon: "https://www.amazon.com/citizen-affiliate-link-2",
       myntra: null,
@@ -69,7 +69,7 @@ export const watchesData = [
     id: 6,
     name: "Timex Ironman",
     description: "A durable and sporty watch from Timex.",
-    imageUrl: "/src/assets/images/watch1.png",
+    imageUrl: "/public/assets/watch1.png",
     affiliateLinks: {
       amazon: null,
       myntra: null,
@@ -82,7 +82,7 @@ export const watchesData = [
     id: 7,
     name: "Casio Digital",
     description: "A basic but reliable Digital watch from casio",
-    imageUrl: "/src/assets/images/watch1.png",
+    imageUrl: "/public/assets/watch1.png",
     affiliateLinks: {
       amazon: "https://www.amazon.com/casio-affiliate-link-1",
       myntra: null,
@@ -95,7 +95,7 @@ export const watchesData = [
     id: 8,
     name: "Citizen Elegant",
     description: "An elegant Watch from Citizen",
-    imageUrl: "/src/assets/images/watch1.png",
+    imageUrl: "/public/assets/watch1.png",
     affiliateLinks: {
       amazon: "https://www.amazon.com/citizen-affiliate-link-2",
       myntra: null,
@@ -108,7 +108,7 @@ export const watchesData = [
     id: 9,
     name: "Timex Expedition",
     description: "A great watch from Timex",
-    imageUrl: "/src/assets/images/watch1.png",
+    imageUrl: "/public/assets/watch1.png",
     affiliateLinks: {
       amazon: null,
       myntra: null,
