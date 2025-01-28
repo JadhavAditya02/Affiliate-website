@@ -1,8 +1,9 @@
-import React from "react";  // ADDED React import here
+import React from "react";
 
 import { useParams } from "react-router-dom";
 import { watchesData } from "../data";
 import { FaAmazon, FaShopify, FaJediOrder } from "react-icons/fa";
+import { SiFlipkart } from "react-icons/si";
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -17,13 +18,13 @@ const ProductPage = () => {
   }
 
   const platformIcons = {
-    amazon: <FaAmazon className="mr-2" />,
-    flipkart: <FaAmazon className="mr-2" />,
-    myntra: <FaShopify className="mr-2" />,
-    ajio: <FaJediOrder className="mr-2" />,
+    amazon: <FaAmazon className="mr-1" />,
+    flipkart: <SiFlipkart className="mr-1" />,
+    myntra: <FaShopify className="mr-1" />,
+    ajio: <FaJediOrder className="mr-1" />,
   };
 
-  const platformStyles = {
+   const platformStyles = {
     amazon: "bg-yellow-400 hover:bg-yellow-500 text-gray-900",
     flipkart: "bg-blue-400 hover:bg-blue-500 text-white",
     myntra: "bg-red-400 hover:bg-red-500 text-white",
@@ -74,10 +75,12 @@ const ProductPage = () => {
                       href={link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center font-medium py-2.5 px-4 rounded-md inline-block transition-colors duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 ${platformStyles[platform]}`}
+                     className={`flex items-center font-medium py-2.5 px-4 rounded-md inline-block transition-colors duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 ${platformStyles[platform]}`}
                     >
-                      {platformIcons[platform]}
-                      Buy on {platforms[platform]}
+                       <span className="flex items-center">
+                         {platformIcons[platform]}
+                         Buy on {platforms[platform]}
+                       </span>
                     </a>
                   )
               )}

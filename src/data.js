@@ -1,24 +1,24 @@
 export const watchesData = [
   {
     id: 1,
-    name: "Classic Analog Watch",
-    description: "A stylish analog watch perfect for everyday wear.",
-    imageUrl: "/assets/watch1.png",  // Updated path
+    name: "Casio Vintage Digital Grey Dial Unisex A-158Wa-1Q (D011)",
+    description: "Casio Stainless Steel Men Vintage Digital Grey Dial Unisex A-158Wa-1Q (D011), Band Color-Silver.",
+    imageUrl: "/assets/A-158Wa-1Q.jpg",  // Updated path
     affiliateLinks: {
-      amazon: "https://www.amazon.com/your-amazon-affiliate-link-1",
-      myntra: null,
-      flipkart: "https://www.flipkart.com/your-flipkart-affiliate-link-3",
+      amazon: "https://amzn.to/42xZAb5",
+      myntra: "https://myntr.it/YfuBBTJ",
+      flipkart: "https://fktr.in/6q8M2eG",
       ajio: null,
     },
-    brand: "Generic",
+    brand: "Casio",
   },
   {
     id: 2,
-    name: "Digital Sport Watch",
-    description: "A durable digital watch designed for sports and fitness.",
-    imageUrl: "/assets/watch1.png",  // Updated path
+    name: "Casio Enticer MTP-V300L-7AUDF",
+    description: "Casio Enticer Analog White Dial Men's Watch (MTP-V300L-7AUDF, A1177, Silver)",
+    imageUrl: "/assets/MTP-V300L-7AUDF.jpg",  // Updated path
     affiliateLinks: {
-      amazon: null,
+      amazon: "https://amzn.to/3Ee77BH",
       myntra: "https://www.myntra.com/your-myntra-affiliate-link-2",
       flipkart: "https://www.flipkart.com/your-flipkart-affiliate-link-3",
       ajio: null,
