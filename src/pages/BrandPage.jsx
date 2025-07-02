@@ -6,9 +6,15 @@ import WatchList from "../components/WatchList";
 
 const BrandPage = () => {
   const { brandName } = useParams();
-  const filteredWatches = watchesData.filter(
-    (watch) => watch.brand.toLowerCase() === brandName.toLowerCase()
-  );
+  const filteredWatches = watchesData.filter((watch) => {
+  if (Array.isArray(watch.brand)) {
+    return watch.brand.some(
+      (b) => b.toLowerCase() === brandName.toLowerCase()
+    );
+  }
+  return watch.brand.toLowerCase() === brandName.toLowerCase();
+});
+
 
   return (
     <div className="container mx-auto px-4 py-8">

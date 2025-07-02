@@ -75,7 +75,7 @@ const ProductPage = () => {
                       href={link}
                       target="_blank"
                       rel="noopener noreferrer"
-                     className={`flex items-center font-medium py-2.5 px-4 rounded-md inline-block transition-colors duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 ${platformStyles[platform]}`}
+                     className={`flex items-center font-medium py-2.5 px-4 rounded-md transition-colors duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 ${platformStyles[platform]}`}
                     >
                        <span className="flex items-center">
                          {platformIcons[platform]}
