@@ -140,7 +140,7 @@ export const watchesData = [
       flipkart: "",
       ajio: null,
     },
-    brand: "Tools",
+    brand: "Accessories",
   },
   {
     id: 12,
@@ -166,7 +166,7 @@ export const watchesData = [
       flipkart: "",
       ajio: null,
     },
-    brand: "Casio",
+    brand: ["Casio", "G-Shock"],
   },
   {
     id: 14,
@@ -205,7 +205,7 @@ export const watchesData = [
       flipkart: "",
       ajio: null,
     },
-    brand: "Casio",
+    brand: "Seiko",
   },
   {
     id: 17,
@@ -218,7 +218,7 @@ export const watchesData = [
       flipkart: "https://fktr.in/0q3YIj8",
       ajio: null,
     },
-    brand: "Casio",
+    brand: ["Casio", "G-Shock"],
   },
    {
     id: 18,
@@ -335,7 +335,7 @@ export const watchesData = [
       flipkart: "",
       ajio: null,
     },
-    brand: "Casio",
+    brand: ["Casio", "G-Shock"],
   },
   {
     id: 27,
