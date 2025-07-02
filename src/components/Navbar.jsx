@@ -7,8 +7,13 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const brands = [
+    "Casio", "Citizen", "Timex", "Titan",
+    "G-Shock", "HMT", "Tissot", "Seiko", "Accessories"
+  ];
+
   return (
-    <nav className="bg-gray-800 p-4 shadow-md">
+    <nav className="fixed top-0 left-0 w-full bg-gray-800 p-4 shadow-md z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link
@@ -20,7 +25,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6">
-          {["Casio", "Citizen", "Timex", "Titan", "G-Shock", "HMT", "Tissot", "Seiko", "Accessories"].map((brand) => (
+          {brands.map((brand) => (
             <li key={brand}>
               <Link
                 to={`/brand/${brand.toLowerCase()}`}
@@ -45,7 +50,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden mt-2 px-4">
           <ul className="space-y-2">
-            {["Casio", "Citizen", "Timex", "Titan", "G-Shock", "HMT", "Tissot", "Seiko", "Accessories"].map((brand) => (
+            {brands.map((brand) => (
               <li key={brand}>
                 <Link
                   to={`/brand/${brand.toLowerCase()}`}
