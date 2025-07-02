@@ -1,4 +1,5 @@
 // WatchList.jsx
+import React from "react";  // ADDED React import here
 
 import { useState, useEffect } from "react";
 import WatchCard from "./WatchCard";
