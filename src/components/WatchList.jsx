@@ -1,5 +1,4 @@
 // WatchList.jsx
-import React from "react";  // ADDED React import here
 
 import { useState, useEffect } from "react";
 import WatchCard from "./WatchCard";
@@ -7,8 +6,8 @@ import PropTypes from "prop-types";
 
 
 const WatchList = ({ watches = [], searchQuery = "" }) => {
-  const [visibleCount, setVisibleCount] = useState(6);
-  const showMoreCount = 6;
+  const [visibleCount, setVisibleCount] = useState(10);
+  const showMoreCount = 10;
   const [filteredWatches, setFilteredWatches] = useState([]); // Initialize as an empty array
 
   useEffect(() => {
@@ -19,10 +18,10 @@ const WatchList = ({ watches = [], searchQuery = "" }) => {
           watch.description.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setFilteredWatches(filtered);
-      setVisibleCount(6);
+      setVisibleCount(10);
     } else {
       setFilteredWatches(watches); // Update with initial watches
-      setVisibleCount(6);
+      setVisibleCount(10);
     }
   }, [searchQuery, watches]);
 
