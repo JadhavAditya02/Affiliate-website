@@ -1,5 +1,7 @@
 // WatchCard.jsx
-import React from "react";  // ADDED React import here
+import React from "react"; 
+import { slugify } from "../utils"; // Make sure this path is correct
+ // ADDED React import here
 
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -24,7 +26,7 @@ const WatchCard = ({ watch }) => {
       </div>
       <div className="mt-auto p-4 border-t border-gray-100 text-center">
         <Link
-          to={`/product/${watch.id}`}
+          to={`/product/${slugify(watch.name)}`}
           className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md inline-block transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
         >
           View Product

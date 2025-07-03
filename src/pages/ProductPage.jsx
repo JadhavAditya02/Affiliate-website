@@ -1,13 +1,42 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { watchesData } from "../data";
-import { FaAmazon, FaShopify, FaJediOrder } from "react-icons/fa";
-import { SiFlipkart } from "react-icons/si";
+import { slugify } from "../utils";
+import {
+  FaAmazon,
+  FaShopify,
+  FaJediOrder,
+  FaShareAlt,
+  FaFacebookF,
+  FaInstagram,
+} from "react-icons/fa";
+import { SiFlipkart, SiWhatsapp } from "react-icons/si";
+import { MdContentCopy } from "react-icons/md";
 
 const ProductPage = () => {
-  const { productId } = useParams();
-  const watch = watchesData.find((watch) => watch.id === parseInt(productId));
+  const { productSlug } = useParams();
+  const [showShareOptions, setShowShareOptions] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const watch = watchesData.find((watch) => slugify(watch.name) === productSlug);
+
+  const shareUrl = window.location.href;
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+    } catch {
+      setCopied(false);
+    }
+  };
+
+  useEffect(() => {
+    if (copied) {
+      const timer = setTimeout(() => setCopied(false), 2500);
+      return () => clearTimeout(timer);
+    }
+  }, [copied]);
 
   if (!watch) {
     return (
@@ -24,7 +53,7 @@ const ProductPage = () => {
     ajio: <FaJediOrder className="mr-1" />,
   };
 
-   const platformStyles = {
+  const platformStyles = {
     amazon: "bg-yellow-400 hover:bg-yellow-500 text-gray-900",
     flipkart: "bg-blue-400 hover:bg-blue-500 text-white",
     myntra: "bg-red-400 hover:bg-red-500 text-white",
@@ -39,7 +68,7 @@ const ProductPage = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 relative">
       <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row">
         <div className="md:w-1/2 p-6 flex justify-center items-center">
           {watch.imageUrl && (
@@ -52,40 +81,101 @@ const ProductPage = () => {
             </div>
           )}
         </div>
+
         <div className="md:w-1/2 p-6 flex flex-col justify-between">
           <div>
-            {watch.name && (
-              <h1 className="text-3xl font-semibold text-gray-800 mb-3 leading-tight">
-                {watch.name}
-              </h1>
-            )}
-            {watch.description && (
-              <p className="text-gray-700 text-base mb-5 leading-relaxed">
-                {watch.description}
-              </p>
-            )}
+            <h1 className="text-3xl font-semibold text-gray-800 mb-3 leading-tight">
+              {watch.name}
+            </h1>
+            <p className="text-gray-700 text-base mb-5 leading-relaxed">
+              {watch.description}
+            </p>
           </div>
-          <div className="mt-4 flex flex-wrap gap-3">
-            {watch.affiliateLinks &&
-              Object.entries(watch.affiliateLinks).map(
-                ([platform, link]) =>
-                  link && (
-                    <a
-                      key={platform}
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                     className={`flex items-center font-medium py-2.5 px-4 rounded-md transition-colors duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 ${platformStyles[platform]}`}
-                    >
-                       <span className="flex items-center">
-                         {platformIcons[platform]}
-                         Buy on {platforms[platform]}
-                       </span>
-                    </a>
-                  )
-              )}
+
+          {/* Price comparison label and buy buttons */}
+          <div className="mt-4">
+            <p className="text-sm text-gray-600 mb-2 italic">
+              🔍 Always compare prices from all links below before buying.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {watch.affiliateLinks &&
+                Object.entries(watch.affiliateLinks).map(
+                  ([platform, link]) =>
+                    link && (
+                      <a
+                        key={platform}
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center font-medium py-2.5 px-4 rounded-md transition-colors duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 ${platformStyles[platform]}`}
+                      >
+                        <span className="flex items-center">
+                          {platformIcons[platform]}
+                          Buy on {platforms[platform]}
+                        </span>
+                      </a>
+                    )
+                )}
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Share Floating Button */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        {showShareOptions && (
+          <>
+            <button
+              onClick={handleCopy}
+              className="w-10 h-10 rounded-full bg-gray-800 text-white flex items-center justify-center shadow-md hover:bg-gray-700 transition"
+              aria-label="Copy Link"
+            >
+              <MdContentCopy />
+            </button>
+            <a
+              href={`https://wa.me/?text=${encodeURIComponent(shareUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center shadow-md hover:bg-green-600 transition"
+              aria-label="Share on WhatsApp"
+            >
+              <SiWhatsapp />
+            </a>
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md hover:bg-blue-700 transition"
+              aria-label="Share on Facebook"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href={`https://www.instagram.com`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center shadow-md hover:bg-pink-600 transition"
+              aria-label="Open Instagram"
+            >
+              <FaInstagram />
+            </a>
+          </>
+        )}
+
+        {/* Share Toggle Button */}
+        <button
+          onClick={() => setShowShareOptions((prev) => !prev)}
+          className="w-12 h-12 rounded-full bg-gray-800 text-white flex items-center justify-center shadow-md hover:bg-gray-700 transition"
+          aria-label="Share"
+        >
+          <FaShareAlt size={18} />
+        </button>
+
+        {copied && (
+          <div className="absolute right-16 bottom-1 bg-gray-700 text-white text-xs px-3 py-1 rounded-full shadow-sm">
+            Link copied!
+          </div>
+        )}
       </div>
     </div>
   );

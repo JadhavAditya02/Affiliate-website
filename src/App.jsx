@@ -1,5 +1,5 @@
 // App.jsx
-import React, { useState } from "react";  // ADDED React import here
+import React, { useState } from "react"; // ADDED React import here
 import {
   BrowserRouter as Router,
   Route,
@@ -13,7 +13,7 @@ import SearchBar from "./components/SearchBar";
 import { watchesData } from "./data";
 import BrandPage from "./pages/BrandPage";
 import ProductPage from "./pages/ProductPage";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const FilterWrapper = ({ children, setSearchQuery, searchQuery }) => {
   const location = useLocation();
@@ -45,7 +45,6 @@ FilterWrapper.propTypes = {
   searchQuery: PropTypes.string,
 };
 
-
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -59,8 +58,7 @@ const App = () => {
     <Router>
       <div className="min-h-screen flex flex-col bg-gray-100">
         <Navbar />
-          <main className="flex-grow container mx-auto p-6 pt-24">
-
+        <main className="flex-grow container mx-auto p-6 pt-24">
           <FilterWrapper
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
@@ -76,7 +74,7 @@ const App = () => {
                 }
               />
               <Route path="/brand/:brandName" element={<BrandPage />} />
-              <Route path="/product/:productId" element={<ProductPage />} />
+              <Route path="/product/:productSlug" element={<ProductPage />} />
             </Routes>
           </FilterWrapper>
         </main>
